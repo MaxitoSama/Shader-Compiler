@@ -1,2 +1,4 @@
-﻿  Application.cpp
+﻿  App.cpp
+D:\Github\SP_PTFG\Shader-Compiler\Shader_Compiler\Shader_Compiler\App.h(15,18): warning C4099:  'GLFWwindow': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
+D:\Github\SP_PTFG\Shader-Compiler\Shader_Compiler\External\ImGui\imgui_impl_glfw.h(21): message :  vea la declaración de 'GLFWwindow'
   Shader_Compiler.vcxproj -> D:\Github\SP_PTFG\Shader-Compiler\Shader_Compiler\Debug\Shader_Compiler.exe
