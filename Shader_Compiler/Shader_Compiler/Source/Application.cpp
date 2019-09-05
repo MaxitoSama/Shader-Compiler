@@ -9,18 +9,27 @@
 #include "ImGui/imgui_impl_opengl2.h"
 
 using namespace std;
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
+enum Engine_State {
+	Init,
+	PreUpdate,
+	Update,
+	PostUpdate,
+	CleanUp
+};
 
 int main(void)
 {
 	GLFWwindow* window;
+	Engine_State EngineState = Update;
 
 	/* Initialize the library */
 	if (!glfwInit())
 		return -1;
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(900, 900, "Hello World", NULL, NULL);
+	window = glfwCreateWindow(1500, 1000, "Hello World", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -82,8 +91,19 @@ int main(void)
 		/* Poll for and process events */
 		glfwPollEvents();
 
+		/*Key Events*/
+		glfwSetKeyCallback(window, key_callback);
+
 	}
 
 	glfwTerminate();
 	return 0;
+}
+
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+	{
+		glfwSetWindowShouldClose(window, GLFW_TRUE);
+	}
 }
